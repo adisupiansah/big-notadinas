@@ -9,6 +9,7 @@
                     <th>No</th>
                     <th>Nama</th>
                     <th>Safung</th>
+                    <th>Tanggal pengajuan</th>
                     <th>Hal</th>
                     <th>No pengajuan</th>
                 </tr>
@@ -20,6 +21,7 @@
                         <td><?= $i; ?></td>
                         <td><?= $data['nama']; ?></td>
                         <td><?= $data['satfung']; ?></td>
+                        <td><?= $data['tgl_ambilnomor']; ?></td>
                         <td><?= $data['Hal']; ?></td>
                         <td><?= $data['no_ndkeluar']; ?></td>
                     </tr>
@@ -30,6 +32,7 @@
 
             <tfoot>
                 <tr>
+                    <th></th>
                     <th></th>
                     <th></th>
                     <th></th>

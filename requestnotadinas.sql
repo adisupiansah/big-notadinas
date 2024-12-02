@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Nov 20, 2024 at 03:57 PM
+-- Generation Time: Dec 02, 2024 at 08:36 AM
 -- Server version: 8.0.30
 -- PHP Version: 8.1.10
 
@@ -30,10 +30,19 @@ SET time_zone = "+00:00";
 CREATE TABLE `ambilnomor` (
   `id` int NOT NULL,
   `nama` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `satfung` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `satfung` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `Hal` varchar(200) COLLATE utf8mb4_general_ci NOT NULL,
-  `no_ndkeluar` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `no_ndkeluar` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `tgl_ambilnomor` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `ambilnomor`
+--
+
+INSERT INTO `ambilnomor` (`id`, `nama`, `satfung`, `Hal`, `no_ndkeluar`, `tgl_ambilnomor`) VALUES
+(29, 'Adi', 'Baglog', 'permohonan pemeliharaan dan perawatan kendaraan dinas roda 2 Baglog Polres Karimun.  ', 'B/ND-119/XI/LOG.5.10.1./2024', '2024-12-02 15:31:02'),
+(30, 'Youria', 'PPK', 'Internet pemakaian desember T.A.2024', 'B/ND-120/XI/LOG.5.10.1./2024', '2024-12-02 15:31:02');
 
 -- --------------------------------------------------------
 
@@ -57,10 +66,10 @@ CREATE TABLE `backup` (
 
 CREATE TABLE `mahasiswa` (
   `id` int NOT NULL,
-  `kepada` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `perihal` char(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `no_ndkeluar` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `tanggal` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+  `kepada` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `perihal` char(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `no_ndkeluar` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `tanggal` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -180,7 +189,12 @@ INSERT INTO `mahasiswa` (`id`, `kepada`, `perihal`, `no_ndkeluar`, `tanggal`) VA
 (154, 'Yth. Kapolres Karimun', 'Permohonan pembayaran tagihan Internet period Desember (Pemakaian Bulan: November 2024) Satuan Bag/Sat/Si dan Polsek Jajaran Polres Karimun', 'B/ND-110/XI/KEU./2024/LOGISTIK', '2024-11-01'),
 (155, 'Yth. Kapolres Karimun', 'Permohonan pembayaran tagihan jasa kebersihan gedung dan halaman Polres Karimun Bulan Oktober 2024', 'B/ND-111/XI/LOG./2024/LOGISTIK', '2024-11-04'),
 (156, 'Yth. Kapolres Karimun', 'Pengiriman rakapitulasi daftar pemeliharaan kendaran R2, R4 dan R6 Polres Karimun', 'B/ND-112/IX/LOG.6.2./2024/Logistik', '2024-11-05'),
-(157, 'Yth. Kapolres Karimun', 'pengajuan anggaran perawatan senpi Polres Karimun bulan November', 'B/ND-113/XI/LOG.5.6./2024/Baglog', '2024-11-13');
+(157, 'Yth. Kapolres Karimun', 'pengajuan anggaran perawatan senpi Polres Karimun bulan November', 'B/ND-113/XI/LOG.5.6./2024/Baglog', '2024-11-13'),
+(169, 'Yth. Kapolres Karimun', 'Pengajuan pencairan Pekerjaan Pemeliharaan dan Perawatan gedung Kantor Pelayanan Terpadu Polres Karimun T.A. 2024', 'B/ND-114/XI/KEU./2024/Baglog', '2024-11-20'),
+(170, 'Yth. Kapolres Karimun', 'Usulan, saran dan masukan rencana pekerjaan pemeliharaan dan perawatan Gedung Kantor Polres Karimun Tahun Anggaran 2025', 'B/ND-115/XI/LOG./2024/Baglog', '2024-11-20'),
+(172, 'Yth. Kapolres Karimun', 'Pengajuan Pencairan Termijn II (dua) Pekerjaan Pemeliharaan dan Perawatan Halaman Kantor Polres Karimun T.A. 2024', 'B/ND-116/XI/Keu./2024', '2024-11-22'),
+(173, 'Yth. Kapolres Karimun', 'Pengajuan Pencairan Termijn II (dua) Pekerjaan Pemeliharaan dan Perawatan Gedung Kantor Polres Karimun T.A. 2024', 'B/ND-117/XI/Keu./2024', '2024-11-22'),
+(174, 'Yth. Kapolres Karimun', 'Pencabutan Kartu Senjata api nomor: 23/X/2024/SIP', 'B/ND-118/XI/LOG.3.4./2024', '2024-11-22');
 
 -- --------------------------------------------------------
 
@@ -190,8 +204,8 @@ INSERT INTO `mahasiswa` (`id`, `kepada`, `perihal`, `no_ndkeluar`, `tanggal`) VA
 
 CREATE TABLE `user` (
   `id` int NOT NULL,
-  `username` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
-  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+  `username` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -239,7 +253,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `ambilnomor`
 --
 ALTER TABLE `ambilnomor`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `backup`
@@ -251,7 +265,7 @@ ALTER TABLE `backup`
 -- AUTO_INCREMENT for table `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=169;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 
 --
 -- AUTO_INCREMENT for table `user`
